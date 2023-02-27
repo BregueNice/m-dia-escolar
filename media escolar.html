@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media escolar</title>
+    <style>
+        body{
+            font: normal 18pt Arial;
+            background: rgb(105, 105, 230);
+        }
+        input{
+            font: normal 18pt Arial;
+            width: 150px;
+        }
+        div#res{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média escolar</h1>
+    <p>Número de Notas:  <input type="number" name="nmd" id="nmd"></p>
+    <p>Nota para aprovação: <input type="number" name="nap" id="nap"></p>
+    <input type="number" name="n1" id="n1">
+    <input type="number" name="n2" id="n2">
+    <input type="number" name="n3" id="n3">
+    <input type="number" name="n4" id="n4">
+    <input type="button" value="calcular" onclick="calcular()">
+    <div id="res"> Resultado</div>
+    <div id="status"> Status</div>
+    <script>
+        var nota1 = document.getElementById('n1')
+        var nota2 = document.getElementById('n2')
+        var nota3 = document.getElementById('n3')
+        var nota4 = document.getElementById('n4')
+        var res = document.getElementById('res')
+        var stt = document.getElementById('status')
+        var nm = document.getElementById('nmd')
+        var na = document.getElementById('nap')
+        function calcular(){
+            var nt1 = Number(nota1.value)
+            var nt2 = Number(nota2.value)
+            var nt3 = Number(nota3.value)
+            var nt4 = Number(nota4.value)
+            var nm1 = Number(nm.value)
+
+            var media = (nt1+nt2+nt3+nt4)/nm1
+
+            var na1 = Number(na.value)
+            res.innerText = `A média é ${media.toFixed(2)}`
+            stt.innerHTML = media>= na1? `<strong>Aprovado<strong>`:`<strong>Repovado<strong>`
+        }
+    </script>
+</body>
+</html>
